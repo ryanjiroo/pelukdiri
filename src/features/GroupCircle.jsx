@@ -57,6 +57,9 @@ const GroupCircle = () => {
     const [showLoadingOverlay, setShowLoadingOverlay] = useState(true);
     const [isLoaded, setIsLoaded] = useState(false);
 
+    // STATE BARU UNTUK SEARCH
+    const [searchTerm, setSearchTerm] = useState('');
+
     const chatMessagesContainerRef = useRef(null);
     const activeViewRef = useRef(activeView);
     const chatGroupIdRef = useRef(chatGroupId);
@@ -418,6 +421,11 @@ const GroupCircle = () => {
         setShowChatOptionsModal(true);
     };
 
+    // Filtered groups for search functionality
+    const filteredGroups = myGroups.filter(group =>
+        group.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     const customScrollbarStyles = `
         .my-groups-scroll-area::-webkit-scrollbar {
             width: 8px;
@@ -511,12 +519,14 @@ const GroupCircle = () => {
                                 type="text"
                                 placeholder="Search..."
                                 className="w-full p-2 rounded-md bg-[#092635] text-white placeholder-[#9EC8B9] border border-[#5C8374] focus:outline-none focus:border-[#9EC8B9]"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
                             />
                         </div>
                         <div className="flex-grow overflow-y-auto pr-2 my-groups-scroll-area">
                             <h4 className="text-md font-semibold mb-3 text-[#9EC8B9]">My Groups</h4>
-                            {myGroups.length > 0 ? (
-                                myGroups.map(group => (
+                            {filteredGroups.length > 0 ? (
+                                filteredGroups.map(group => (
                                     <div
                                         key={group._id}
                                         className="mb-3 p-3 rounded-lg cursor-pointer hover:bg-[#1B4242] transition duration-200"
@@ -527,7 +537,7 @@ const GroupCircle = () => {
                                     </div>
                                 ))
                             ) : (
-                                <p className="text-[#5C8374]">No groups yet.</p>
+                                <p className="text-[#5C8374]">No groups found.</p>
                             )}
                         </div>
                         {/* Form untuk membuat grup baru - pindah ke sidebar */}
