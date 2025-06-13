@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* Styling Scrollbar Kustom */
+
+/* Untuk browser berbasis Webkit (Chrome, Safari, Edge) */
+.custom-scrollbar-style::-webkit-scrollbar {
+  width: 8px; /* Lebar scrollbar vertikal */
+  height: 8px; /* Tinggi scrollbar horizontal */
+}
+
+.custom-scrollbar-style::-webkit-scrollbar-track {
+  background-color: #092635; /* Warna track: mood-dark */
+  border-radius: 10px;
+}
+
+.custom-scrollbar-style::-webkit-scrollbar-thumb {
+  background-color: #5C8374; /* Warna thumb: mood-accent */
+  border-radius: 10px;
+  border: 2px solid #092635; /* Border agar thumb terlihat 'terangkat' dari track */
+}
+
+.custom-scrollbar-style::-webkit-scrollbar-thumb:hover {
+  background-color: #9EC8B9; /* Warna thumb saat hover: mood-light */
+}
+
+/* Untuk Firefox */
+.custom-scrollbar-style {
+  scrollbar-width: thin; /* 'auto' atau 'thin' */
+  scrollbar-color: #5C8374 #092635; /* thumb-color track-color */
+}
+
+textarea {
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  resize: none !important;
+  min-height: auto !important;
+  max-height: none !important;
+}
+
+.modal-backdrop-blur {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* Untuk kompatibilitas WebKit */
+}
