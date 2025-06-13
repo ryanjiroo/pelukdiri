@@ -40,7 +40,7 @@ const Login = () => {
 
                 {/* Judul Login */}
                 <h2 className="text-2xl font-bold text-[#9EC8B9] text-center mb-2">
-                    Login dengan E-mail
+                    Login dengan Username
                 </h2>
                 <p className="text-[#D6FFEF] text-center mb-8">
                     Silakan masukkan detail Anda untuk masuk.
