@@ -105,7 +105,7 @@ const Profile = () => {
                             type="number" // Changed to number
                             id="editPhone"
                             className="w-full p-3 rounded-lg border border-[#5C8374] bg-[#092635] text-[#9EC8B9] placeholder-[#5C8374] focus:ring-2 focus:ring-[#9EC8B9] focus:border-transparent outline-none"
-                            placeholder="Kosongkan jika tidak ingin diubah"
+                            placeholder="Diawali 62 (Contoh: 6281234567890)"
                             value={editPhone}
                             onChange={(e) => setEditPhone(e.target.value)}
                             disabled={isLoading}
