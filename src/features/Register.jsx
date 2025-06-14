@@ -35,7 +35,7 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#092635] flex items-center justify-center p-4">
+        <div className="min-h-screen mt-10 bg-[#092635] flex items-center justify-center p-4">
             <div className="bg-[#1B4242] rounded-2xl shadow-xl p-8 md:p-10 w-full max-w-md">
                 {/* Logo/Nama Aplikasi */}
                 <div className="flex justify-center mb-6">
