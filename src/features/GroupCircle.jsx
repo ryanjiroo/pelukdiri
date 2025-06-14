@@ -206,7 +206,7 @@ const GroupCircle = () => {
                 if (chatGroupId === groupId) {
                     showView('groupView');
                     setChatGroupId('');
-                    setGroupChatTitle('');
+                    setChatGroupTitle('');
                     setChatMessages([]);
                 }
             }
@@ -317,7 +317,8 @@ const GroupCircle = () => {
         socket.emit('sendGroupMessage', messageData);
         console.log("[handleSendGroupMessage] Sent message:", messageData);
 
-        setChatMessages((prevMessages) => [...prevMessages, messageData]);
+        // Hapus penambahan lokal untuk menghindari duplikasi
+        // setChatMessages((prevMessages) => [...prevMessages, messageData]);
         setChatMessageInput('');
     };
 
@@ -348,11 +349,17 @@ const GroupCircle = () => {
             }
 
             if (message.isSupportAlert && message.sender !== currentUserId) {
-                let messageHtml = `<p>Halo, temanmu <b>${message.fromUser}</b> di grup ini sepertinya ${message.reasonForAlert}. Mungkin kamu bisa menyapanya?</p>`;
+                let messageText = `Halo, temanmu <b>${message.fromUser}</b> di grup ini sepertinya ${message.reasonForAlert}. Mungkin kamu bisa menyapanya?`;
+                let actionButton = null;
                 if (message.supportUrl) {
-                    messageHtml += `<a href="${message.supportUrl}" target="_blank" class="btn btn-success-custom w-100 mb-2"><i class="fab fa-whatsapp"></i> Sapa ${message.fromUser} di WhatsApp</a>`;
+                    actionButton = {
+                        text: `Sapa ${message.fromUser} di WhatsApp`,
+                        url: message.supportUrl,
+                        className: 'bg-[#25D366] hover:bg-[#1DA851] text-white flex items-center justify-center', // Contoh warna WhatsApp
+                        icon: "lucide-whatsapp"
+                    };
                 }
-                showModal('Butuh Dukungan Teman', messageHtml);
+                showModal('Butuh Dukungan Teman', messageText, false, actionButton);
             }
         });
 
@@ -888,7 +895,7 @@ const DropdownMenu = ({ trigger, options }) => {
         <div className="relative" ref={dropdownRef}>
             {React.cloneElement(trigger, { onClick: toggleDropdown })}
             {isOpen && (
-                <ul className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md border border-[#E5E7EB] py-1 z-10">
+                <ul className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md border border-[#E5E7EB] py-1 z-10 max-h-60 overflow-y-auto">
                     {options.map((option, index) => (
                         option.type === 'divider' ? (
                             <li key={index} className="border-t border-[#E5E7EB] my-1"></li>
