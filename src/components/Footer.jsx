@@ -4,11 +4,9 @@ const Footer = () => {
 
     return (
         <footer className="w-full py-8 bg-[#1B4242] text-[#9EC8B9]">
-            {/* Menggunakan grid untuk tata letak utama, dengan penyesuaian untuk distribusi yang lebih merata */}
-            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 lg:gap-y-0 lg:gap-x-4">
+            <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
                 {/* Kolom 1: Informasi Branding/Hak Cipta */}
-                {/* Menambahkan flex-grow-1 untuk memastikan kolom ini mengambil ruang yang proporsional */}
-                <div className="flex flex-col items-center md:items-start text-center md:text-left flex-grow">
+                <div className="flex flex-col items-center md:items-start text-center md:text-left">
                     <img
                         src="https://raw.githubusercontent.com/ryanjiroo/pelukdiri/refs/heads/main/public/PelukDiri%20Horizontal%20Fit.png"
                         alt="PelukDiri Logo"
@@ -52,7 +50,6 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            {/* Bagian bawah footer */}
             <div className="mt-8 pt-4 border-t border-[#9EC8B9] border-opacity-20 text-center text-sm opacity-70">
                 Selalu ada ruang, waktu, dan kata untukmu yang ingin didengar.
             </div>
