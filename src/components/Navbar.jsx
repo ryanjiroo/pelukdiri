@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -22,14 +21,22 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed top-0 left-0 z-50 flex items-center justify-center px-8 py-4 transition-colors duration-300
+      className={`w-full fixed top-0 left-0 z-50 flex items-center justify-center py-4 transition-colors duration-300
         ${scrolled ? 'bg-[#1B4242] bg-opacity-95 shadow' : 'bg-transparent shadow-none'}
       `}
-    > {/* Hapus min-w-screen di sini */}
-      <div className="flex items-center w-full max-w-5xl justify-between">
+    >
+        {/*
+            Penting: Hapus `px-8` dari `<nav>` utama
+            dan tambahkan padding horizontal ke `div` di dalamnya.
+        */}
+      <div className="flex items-center w-full max-w-5xl justify-between px-4 md:px-8"> {/* Tambahkan px-4 untuk mobile, dan md:px-8 untuk desktop */}
         <div className="text-2xl font-bold text-[#9EC8B9] tracking-wide">
           <Link to="/" className="hover:text-[#5C8374] transition">
-            PelukDiri
+            <img
+              src="https://raw.githubusercontent.com/ryanjiroo/pelukdiri/refs/heads/main/public/PelukDiri%20Horizontal%20Fit.png"
+              alt="PelukDiri Logo"
+              className="h-10 md:h-12 lg:h-16"
+            />
           </Link>
         </div>
 
