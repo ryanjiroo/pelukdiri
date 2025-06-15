@@ -30,13 +30,13 @@ const TentangKami = () => {
     >
       {/* Header Utama - Mirip bagian "Our Design Solutions" */}
       <div className="max-w-4xl mx-auto text-center mb-16">
-        <span className="inline-block px-3 py-1 text-sm font-semibold text-[#5C8374] bg-[#092635] rounded-full uppercase tracking-wider mb-4">
+        <span className="inline-block px-3 py-1 text-sm font-semibold text-[#9EC8B9] bg-[#092635] rounded-full uppercase tracking-wider mb-4">
           Tentang Kami
         </span>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#092635] leading-tight mb-4">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#9EC8B9] leading-tight mb-4">
           Mengenal PelukDiri Lebih Dekat
         </h1>
-        <p className="text-lg text-[#092635]">
+        <p className="text-lg text-[#9EC8B9]">
           PelukDiri adalah sebuah platform yang didedikasikan untuk mendukung perjalanan kesehatan mental dan kesejahteraan emosional Anda. Kami percaya bahwa setiap individu berhak mendapatkan dukungan yang penuh kasih sayang dan akses ke sumber daya yang dapat membantu mereka menavigasi tantangan hidup.
         </p>
       </div>
