@@ -59,7 +59,7 @@ const Artikel = () => {
   const readMoreArticles = allArticles.slice(1, 4);
 
   return (
-    <div className="bg-[#092635] mt-10 min-h-screen py-16">
+    <div className="bg-[#092635] mt-16 min-h-screen py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 
         {/* --- Header Utama (Articles & News) --- */}
